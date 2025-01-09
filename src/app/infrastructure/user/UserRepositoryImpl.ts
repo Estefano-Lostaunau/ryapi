@@ -8,6 +8,10 @@ class UserRepositoryImpl implements UserRepository {
   async loginWithGoogle(tokenId: string): Promise<void> {
     // Implement Google login logic here
   }
+
+  async registerUser(username: string, password: string): Promise<void> {
+    // Implement registration logic here
+  }
 }
 
-export default new UserRepositoryImpl();
+export default UserRepositoryImpl;
