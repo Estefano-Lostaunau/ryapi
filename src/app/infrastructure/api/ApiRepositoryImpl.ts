@@ -13,4 +13,4 @@ class ApiRepositoryImpl implements ApiRepository {
   }
 }
 
-export default new ApiRepositoryImpl();
+export default ApiRepositoryImpl;
