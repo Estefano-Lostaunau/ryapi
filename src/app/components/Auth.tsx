@@ -1,14 +1,17 @@
-import React from 'react';
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import UserService from '../domains/user/UserService';
 
 const Auth = () => {
-  const handleLoginSuccess = async (response) => {
-    await UserService.loginWithGoogle(response.credential);
+  const handleLoginSuccess = async (response: CredentialResponse) => {
+    if (response.credential) {
+      await UserService.loginWithGoogle(response.credential);
+    } else {
+      console.error('No credential found in response');
+    }
   };
 
-  const handleLoginFailure = (error) => {
-    console.error('Login failed:', error);
+  const handleLoginFailure = () => {
+    console.error('Login failed');
   };
 
   return (
