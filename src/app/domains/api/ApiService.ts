@@ -3,7 +3,7 @@ import { Api } from './Api';
 import ApiRepositoryImpl from '../../infrastructure/api/ApiRepositoryImpl';
 
 class ApiService {
-  constructor(private apiRepository: ApiRepository) {}
+  constructor(private apiRepository: ApiRepository) { }
 
   async createApi(api: Omit<Api, 'id'>): Promise<void> {
     const newApi: Api = { ...api, id: Date.now().toString() };
