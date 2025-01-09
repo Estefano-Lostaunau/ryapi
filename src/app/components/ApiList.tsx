@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import ApiService from '../domains/api/ApiService';
+import { Api } from '../domains/api/Api';
 
 const ApiList = () => {
-  const [apis, setApis] = useState([]);
+  const [apis, setApis] = useState<Api[]>([]);
 
   useEffect(() => {
     const fetchApis = async () => {
-      const apiList = await ApiService.getApis();
+      const apiList: Api[] = await ApiService.getApis();
       setApis(apiList);
     };
     fetchApis();
