@@ -4,7 +4,12 @@ import UserService from '../domains/user/UserService';
 const Auth = () => {
   const handleLoginSuccess = async (response: CredentialResponse) => {
     if (response.credential) {
-      await UserService.loginWithGoogle(response.credential);
+      try {
+        await UserService.loginWithGoogle(response.credential);
+        console.log('Login successful');
+      } catch (error) {
+        console.error('Error during login with Google:', error);
+      }
     } else {
       console.error('No credential found in response');
     }
