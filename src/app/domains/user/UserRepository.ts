@@ -1,7 +1,7 @@
-import { User } from '../types';
+import { User } from './User';
 
 export interface UserRepository {
-  loginUser(username: string, password: string): Promise<void>;
-  loginWithGoogle(tokenId: string): Promise<void>;
-  registerUser(username: string, password: string, email: string): Promise<void>;
+  loginUser(username: string, password: string): Promise<User>;
+  loginWithGoogle(tokenId: string): Promise<User>;
+  registerUser(username: string, password: string, email: string): Promise<User>;
 }
