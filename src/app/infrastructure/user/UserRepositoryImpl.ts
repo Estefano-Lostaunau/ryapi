@@ -1,9 +1,22 @@
 import { UserRepository } from '../../domains/user/UserRepository';
+import { User } from '../../domains/user/User';
 import axios from 'axios';
 
 class UserRepositoryImpl implements UserRepository {
-  async loginUser(username: string, password: string): Promise<void> {
-    // Implement login logic here
+  async loginUser(username: string, password: string): Promise<User> {
+    try {
+      const response = await axios.post('/api/login', { username, password });
+      const { id, email } = response.data;
+      return {
+        id,
+        username,
+        email,
+        password // Nota: No deberías almacenar la contraseña en el objeto User
+      };
+    } catch (error) {
+      console.error('Error logging in:', error);
+      throw new Error('Invalid username or password');
+    }
   }
 
   async loginWithGoogle(tokenId: string): Promise<any> {
@@ -22,8 +35,20 @@ class UserRepositoryImpl implements UserRepository {
     }
   }
 
-  async registerUser(username: string, password: string, email: string): Promise<void> {
-    // Implement user registration logic here
+  async registerUser(username: string, password: string, email: string): Promise<User> {
+    try {
+      const response = await axios.post('/api/register', { username, password, email });
+      const { id } = response.data;
+      return {
+        id,
+        username,
+        email,
+        password // Nota: No deberías almacenar la contraseña en el objeto User
+      };
+    } catch (error) {
+      console.error('Error registering user:', error);
+      throw new Error('Registration failed');
+    }
   }
 }
 

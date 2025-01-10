@@ -5,13 +5,14 @@ import UserService from '../domains/user/UserService';
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await UserService.registerUser(username, password);
+      await UserService.registerUser(username, password, email);
       navigate('/login'); // Redirect to login after successful registration
     } catch (err) {
       setError('Registration failed');
@@ -40,6 +41,16 @@ const Register = () => {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
