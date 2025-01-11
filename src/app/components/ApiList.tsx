@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ApiService from '../domains/api/ApiService';
 import { Api } from '../domains/api/Api';
 import { useApiContext } from '../contexts/ApiContext';
 
 const ApiList = () => {
+  const navigate = useNavigate();
   const [apis, setApis] = useState<Api[]>([]);
   const { shouldRefresh } = useApiContext();
 
@@ -25,7 +27,8 @@ const ApiList = () => {
           {apis.map((api) => (
             <li
               key={api.id}
-              className="py-4 hover:bg-gray-50 transition duration-150 px-4 rounded-md"
+              onClick={() => navigate(`/api-details/${api.id}`)}
+              className="py-4 hover:bg-gray-50 transition duration-150 px-4 rounded-md cursor-pointer"
             >
               <span className="text-lg font-medium text-gray-800">{api.name}</span>
             </li>
