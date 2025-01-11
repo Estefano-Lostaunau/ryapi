@@ -20,33 +20,39 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
-      <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      <Auth />
+    <div className="h-screen flex items-center justify-center">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded shadow-md">
+        <h2 className="text-2xl font-bold text-center text-black">Login</h2>
+        {error && <p className="text-sm text-center text-red-500">{error}</p>}
+        <form onSubmit={handleLogin} className="space-y-4">
+          <div>
+            <label htmlFor="username" className="block text-sm font-medium text-black">Username:</label>
+            <input
+              type="text"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="w-full px-3 py-2 mt-1 text-black bg-gray-200 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-500"
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-black">Password:</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full px-3 py-2 mt-1 text-black bg-gray-200 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-gray-500"
+            />
+          </div>
+          <button type="submit" className="w-full px-4 py-2 font-bold text-white bg-black rounded hover:bg-gray-800 focus:outline-none focus:ring focus:ring-gray-500">
+            Login
+          </button>
+        </form>
+        <Auth />
+      </div>
     </div>
   );
 };
