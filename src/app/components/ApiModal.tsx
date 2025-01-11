@@ -22,7 +22,7 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
         name: '',
         type: 'string',
         isPrimaryKey: false,
-        isRequired: false
+        isRequired: true
     });
     const { refreshApis } = useApiContext();
 
@@ -44,7 +44,7 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
                 name: '',
                 type: 'string',
                 isPrimaryKey: false,
-                isRequired: false
+                isRequired: true
             });
         }
     };
@@ -91,7 +91,7 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
             name: '',
             type: 'string',
             isPrimaryKey: false,
-            isRequired: false,
+            isRequired: true,
             length: undefined
         });
         onClose();
