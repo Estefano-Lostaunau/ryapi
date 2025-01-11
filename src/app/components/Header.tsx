@@ -21,7 +21,7 @@ const Header = () => {
       </nav>
       {user && (
         <div>
-          <img src={user.picture} />
+          <img src={user.picture} alt="User Avatar" />
           <span>{user.name}</span>
         </div>
       )}
