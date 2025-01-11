@@ -30,7 +30,14 @@ class ApiService {
       throw error;
     }
   }
-
+  async updateApi(id: string, api: Omit<Api, 'id'>): Promise<void> {
+    try {
+      await this.apiRepository.updateApi(id, api);
+    } catch (error) {
+      console.error('Error updating API:', error);
+      throw error;
+    }
+  }
 }
 
 export default new ApiService(new ApiRepositoryImpl());
