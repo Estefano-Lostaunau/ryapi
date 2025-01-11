@@ -29,6 +29,14 @@ class ApiRepositoryImpl implements ApiRepository {
       throw new Error(error instanceof Error ? error.message : 'Failed to fetch APIs');
     }
   }
+  async getApiById(id: string): Promise<Api> {
+    try {
+      const response = await axios.get<Api>(`${API_URL}/apis/${id}`);
+      return response.data;
+    } catch (error) {
+      throw new Error(error instanceof Error ? error.message : 'Failed to fetch API');
+    }
+  }
 }
 
 export default ApiRepositoryImpl;

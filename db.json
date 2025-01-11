@@ -42,6 +42,72 @@
           ]
         }
       ]
+    },
+    {
+      "id": "6751",
+      "name": "Prueba",
+      "description": "xd",
+      "tables": [
+        {
+          "name": "estefano",
+          "attributes": [
+            {
+              "name": "id",
+              "type": "uuid",
+              "isPrimaryKey": true,
+              "isRequired": true
+            },
+            {
+              "name": "nombre",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true,
+              "length": 100
+            }
+          ]
+        },
+        {
+          "name": "jose",
+          "attributes": [
+            {
+              "name": "id",
+              "type": "number",
+              "isPrimaryKey": true,
+              "isRequired": true
+            },
+            {
+              "name": "nombre",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true,
+              "length": 200
+            }
+          ]
+        },
+        {
+          "name": "jherson",
+          "attributes": [
+            {
+              "name": "id",
+              "type": "uuid",
+              "isPrimaryKey": true,
+              "isRequired": true
+            },
+            {
+              "name": "nombre",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            },
+            {
+              "name": "birth",
+              "type": "date",
+              "isPrimaryKey": false,
+              "isRequired": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }

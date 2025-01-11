@@ -22,6 +22,15 @@ class ApiService {
       throw error;
     }
   }
+  async getApiById(id: string): Promise<Api> {
+    try {
+      return await this.apiRepository.getApiById(id);
+    } catch (error) {
+      console.error('Error fetching API:', error);
+      throw error;
+    }
+  }
+
 }
 
 export default new ApiService(new ApiRepositoryImpl());
