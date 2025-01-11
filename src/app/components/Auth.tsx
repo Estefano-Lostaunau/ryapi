@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import {GoogleLogin, CredentialResponse, googleLogout } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom'; {/* googleLogout*/ }
+import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import UserService from '../domains/user/UserService';
 import { useUser } from '../contexts/UserContext';
-import {jwtDecode } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const Auth = () => {
   const { setUser } = useUser();
@@ -28,18 +28,18 @@ const Auth = () => {
       console.error('No credential found in response');
     }
   };
-  
+
 
   const handleLoginFailure = () => {
     console.error('Login failed');
   };
   return (
-      <GoogleLogin
-        onSuccess={handleLoginSuccess}
-        onError={handleLoginFailure}
-        auto_select={true}
-      />
-      
+    <GoogleLogin
+      onSuccess={handleLoginSuccess}
+      onError={handleLoginFailure}
+      auto_select={true}
+    />
+
   );
 };
 

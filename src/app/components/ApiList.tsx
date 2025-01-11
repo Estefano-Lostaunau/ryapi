@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import ApiService from '../domains/api/ApiService';
 import { Api } from '../domains/api/Api';
+import { useApiContext } from '../contexts/ApiContext';
 
 const ApiList = () => {
   const [apis, setApis] = useState<Api[]>([]);
+  const { shouldRefresh } = useApiContext();
 
   useEffect(() => {
     const fetchApis = async () => {
@@ -11,16 +13,30 @@ const ApiList = () => {
       setApis(apiList);
     };
     fetchApis();
-  }, []);
+  }, [shouldRefresh]);
 
   return (
-    <div>
-      <h2>API List</h2>
-      <ul>
-        {apis.map((api) => (
-          <li key={api.id}>{api.name}</li>
-        ))}
-      </ul>
+    <div className="bg-white p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold mb-6 text-gray-800">API List</h2>
+      {apis.length === 0 ? (
+        <p className="text-gray-500 text-center">No APIs available</p>
+      ) : (
+        <ul className="divide-y divide-gray-200">
+          {apis.map((api) => (
+            <li
+              key={api.id}
+              className="py-4 hover:bg-gray-50 transition duration-150 px-4 rounded-md"
+            >
+              <div className="flex flex-col">
+                <span className="text-lg font-medium text-gray-800">{api.name}</span>
+                {api.description && (
+                  <span className="text-sm text-gray-500">{api.description}</span>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
