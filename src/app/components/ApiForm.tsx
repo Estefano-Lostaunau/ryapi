@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-import ApiService from '../domains/api/ApiService';
-import { useApiContext } from '../contexts/ApiContext';
+import { ApiModal } from './ApiModal';
 
 const ApiForm = () => {
   const [apiName, setApiName] = useState('');
   const [apiDescription, setApiDescription] = useState('');
-  const { refreshApis } = useApiContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    await ApiService.createApi({ name: apiName, description: apiDescription });
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
     setApiName('');
     setApiDescription('');
-    refreshApis();
   };
 
   return (
@@ -52,6 +54,13 @@ const ApiForm = () => {
           Create API
         </button>
       </form>
+
+      <ApiModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        apiName={apiName}
+        apiDescription={apiDescription}
+      />
     </div>
   );
 };

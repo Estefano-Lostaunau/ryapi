@@ -9,7 +9,7 @@ const ApiList = () => {
 
   useEffect(() => {
     const fetchApis = async () => {
-      const apiList: Api[] = await ApiService.getApis();
+      const apiList = await ApiService.getApis();
       setApis(apiList);
     };
     fetchApis();
@@ -27,12 +27,7 @@ const ApiList = () => {
               key={api.id}
               className="py-4 hover:bg-gray-50 transition duration-150 px-4 rounded-md"
             >
-              <div className="flex flex-col">
-                <span className="text-lg font-medium text-gray-800">{api.name}</span>
-                {api.description && (
-                  <span className="text-sm text-gray-500">{api.description}</span>
-                )}
-              </div>
+              <span className="text-lg font-medium text-gray-800">{api.name}</span>
             </li>
           ))}
         </ul>
