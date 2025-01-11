@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ApiService from '../domains/api/ApiService';
+import { dataTypes } from '../domains/api/Api';
 import { useApiContext } from '../contexts/ApiContext';
 import { Table, Attribute } from '../domains/api/Api';
 
@@ -26,7 +27,7 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
     });
     const { refreshApis } = useApiContext();
 
-    const dataTypes = ['string', 'number', 'boolean', 'date', 'uuid'];
+
 
     const handleAddTable = () => {
         if (newTable.trim()) {

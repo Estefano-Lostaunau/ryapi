@@ -13,9 +13,8 @@
   ],
   "apis": [
     {
-      "id": "38c5",
-      "name": "Api prueba final",
-      "description": "prueba final",
+      "name": "Api Prueba Final 2 ",
+      "description": "Final edit",
       "tables": [
         {
           "name": "Persona",
@@ -27,21 +26,45 @@
               "isRequired": true
             },
             {
-              "name": "name",
+              "name": "nombre",
               "type": "string",
               "isPrimaryKey": false,
               "isRequired": true
             },
             {
-              "name": "email",
+              "name": "correo",
               "type": "string",
               "isPrimaryKey": false,
               "isRequired": true,
               "length": 200
             }
           ]
+        },
+        {
+          "name": "Auto",
+          "attributes": [
+            {
+              "name": "id",
+              "type": "uuid",
+              "isPrimaryKey": true,
+              "isRequired": true
+            },
+            {
+              "name": "modelo",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            },
+            {
+              "name": "anio",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            }
+          ]
         }
-      ]
+      ],
+      "id": "38c5"
     },
     {
       "id": "6751",
@@ -102,6 +125,70 @@
             {
               "name": "birth",
               "type": "date",
+              "isPrimaryKey": false,
+              "isRequired": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2363",
+      "name": "poruabasdas",
+      "description": "dasdasd",
+      "tables": [
+        {
+          "name": "asdasd",
+          "attributes": [
+            {
+              "name": "sdsd",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            },
+            {
+              "name": "dsds",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            },
+            {
+              "name": "dsds",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            },
+            {
+              "name": "dsds",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            },
+            {
+              "name": "dsdsds",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "name": "asdas",
+          "attributes": [
+            {
+              "name": "asdasdsa",
+              "type": "string",
+              "isPrimaryKey": false,
+              "isRequired": true
+            }
+          ]
+        },
+        {
+          "name": "dasdas",
+          "attributes": [
+            {
+              "name": "asdasdas",
+              "type": "string",
               "isPrimaryKey": false,
               "isRequired": true
             }

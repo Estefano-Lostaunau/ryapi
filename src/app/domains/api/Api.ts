@@ -10,6 +10,7 @@ export interface Table {
   name: string;
   attributes: Attribute[];
 }
+export const dataTypes = ['string', 'number', 'boolean', 'date', 'uuid'];
 
 export interface Api {
   id: string;
