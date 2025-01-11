@@ -18,7 +18,7 @@ const ApiForm = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg">
+    <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-center">
       <h2 className="text-2xl font-semibold mb-6 text-gray-800">Create New API</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
