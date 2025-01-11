@@ -1,7 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 
 const Header = () => {
+  const { user } = useUser();
+
   return (
     <header>
       <nav>
@@ -17,6 +19,12 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      {user && (
+        <div>
+          <img src={user.picture} />
+          <span>{user.name}</span>
+        </div>
+      )}
     </header>
   );
 };
