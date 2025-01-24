@@ -1,11 +1,5 @@
 import { createContext, useState, useContext, ReactNode } from 'react';
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  picture: string;
-}
+import { User } from '../models/User';
 
 interface UserContextType {
   user: User | null;

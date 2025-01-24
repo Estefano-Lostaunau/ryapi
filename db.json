@@ -3,196 +3,76 @@
     {
       "id": "1",
       "username": "user1",
-      "password": "pass1"
-    },
-    {
-      "id": "2",
-      "username": "user2",
-      "password": "pass2"
-    }
-  ],
-  "apis": [
-    {
-      "name": "Api Prueba Final 2 ",
-      "description": "Final edit",
-      "tables": [
+      "email": "user1@example.com",
+      "password": "user1",
+      "createdAt": "2024-03-20T00:00:00.000Z",
+      "updatedAt": null,
+      "apis": [
         {
-          "name": "Persona",
-          "attributes": [
+          "name": "asdada",
+          "description": "asdas",
+          "tables": [
             {
-              "name": "id",
-              "type": "uuid",
-              "isPrimaryKey": true,
-              "isRequired": true
+              "name": "asdasd",
+              "attributes": [
+                {
+                  "name": "id",
+                  "type": "number",
+                  "isPrimaryKey": true,
+                  "isRequired": true
+                },
+                {
+                  "name": "aasa",
+                  "type": "string",
+                  "isPrimaryKey": false,
+                  "isRequired": true
+                }
+              ]
             },
             {
-              "name": "nombre",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "correo",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true,
-              "length": 200
+              "name": "sadadasdas",
+              "attributes": [
+                {
+                  "name": "asda",
+                  "type": "number",
+                  "isPrimaryKey": false,
+                  "isRequired": true
+                }
+              ]
             }
-          ]
+          ],
+          "userId": "1",
+          "createdAt": "2025-01-23T02:38:30.746Z",
+          "updatedAt": "2025-01-23T14:53:19.864Z",
+          "id": "23ef71c6-de40-441c-b66a-5301fb8026be"
         },
         {
-          "name": "Auto",
-          "attributes": [
-            {
-              "name": "id",
-              "type": "uuid",
-              "isPrimaryKey": true,
-              "isRequired": true
-            },
-            {
-              "name": "modelo",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "anio",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            }
-          ]
-        }
-      ],
-      "id": "38c5"
-    },
-    {
-      "id": "6751",
-      "name": "Prueba",
-      "description": "xd",
-      "tables": [
-        {
-          "name": "estefano",
-          "attributes": [
-            {
-              "name": "id",
-              "type": "uuid",
-              "isPrimaryKey": true,
-              "isRequired": true
-            },
-            {
-              "name": "nombre",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true,
-              "length": 100
-            }
-          ]
-        },
-        {
-          "name": "jose",
-          "attributes": [
-            {
-              "name": "id",
-              "type": "number",
-              "isPrimaryKey": true,
-              "isRequired": true
-            },
-            {
-              "name": "nombre",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true,
-              "length": 200
-            }
-          ]
-        },
-        {
-          "name": "jherson",
-          "attributes": [
-            {
-              "name": "id",
-              "type": "uuid",
-              "isPrimaryKey": true,
-              "isRequired": true
-            },
-            {
-              "name": "nombre",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "birth",
-              "type": "date",
-              "isPrimaryKey": false,
-              "isRequired": true
-            }
-          ]
+          "name": "asdfsf",
+          "description": "sdfsdfsdf",
+          "tables": [],
+          "userId": "1",
+          "createdAt": "2025-01-23T04:08:59.076Z",
+          "updatedAt": "2025-01-23T04:08:59.076Z",
+          "id": "745d16a9-7b7f-47ab-8072-0781c1a344dc"
         }
       ]
     },
     {
-      "id": "2363",
-      "name": "poruabasdas",
-      "description": "dasdasd",
-      "tables": [
+      "id": "2",
+      "username": "user2",
+      "email": "user2@example.com",
+      "password": "user2",
+      "createdAt": "2024-03-20T00:00:00.000Z",
+      "updatedAt": null,
+      "apis": [
         {
-          "name": "asdasd",
-          "attributes": [
-            {
-              "name": "sdsd",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "dsds",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "dsds",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "dsds",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            },
-            {
-              "name": "dsdsds",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            }
-          ]
-        },
-        {
-          "name": "asdas",
-          "attributes": [
-            {
-              "name": "asdasdsa",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            }
-          ]
-        },
-        {
-          "name": "dasdas",
-          "attributes": [
-            {
-              "name": "asdasdas",
-              "type": "string",
-              "isPrimaryKey": false,
-              "isRequired": true
-            }
-          ]
+          "name": "asda",
+          "description": "asdsad",
+          "tables": [],
+          "userId": "2",
+          "createdAt": "2025-01-23T04:42:41.015Z",
+          "updatedAt": "2025-01-23T04:42:41.015Z",
+          "id": "00a23143-af52-4f7a-8c80-d34d0695b2fc"
         }
       ]
     }

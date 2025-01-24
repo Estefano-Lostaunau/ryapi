@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import ApiService from '../domains/api/ApiService';
-import { dataTypes } from '../domains/api/Api';
-import { Api, Attribute, Table } from '../domains/api/Api';
-import { useApiContext } from '../contexts/ApiContext';
+import { useUser } from '../contexts/UserContext';
+import ApiService from '../services/ApiService';
+import { dataTypes } from '../models/Api';
+import { Api, Attribute, Table } from '../models/Api';
 
 export const ApiDetails = () => {
     const [api, setApi] = useState<Api | null>(null);
@@ -23,29 +23,47 @@ export const ApiDetails = () => {
 
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
-    const { refreshApis } = useApiContext();
+    const { user } = useUser();
 
     useEffect(() => {
+        if (!user) {
+            navigate('/login');
+            return;
+        }
+
         const fetchApi = async () => {
             if (id) {
-                const apiData = await ApiService.getApiById(id);
-                setApi(apiData);
-                setEditedApi(apiData);
+                try {
+                    const apiData = await ApiService.getApiById(user.id, id);
+                    setApi(apiData);
+                    setEditedApi(apiData);
+                } catch (error) {
+                    console.error('Error fetching API:', error);
+                    navigate('/');
+                }
             }
         };
         fetchApi();
-    }, [id]);
+    }, [id, user, navigate]);
 
     const handleSave = async () => {
+        if (!user) {
+            navigate('/login');
+            return;
+        }
+
         if (id && editedApi) {
-            await ApiService.updateApi(id, {
-                name: editedApi.name,
-                description: editedApi.description,
-                tables: editedApi.tables
-            });
-            setApi(editedApi);
-            setIsEditing(false);
-            refreshApis();
+            try {
+                await ApiService.updateApi(user.id, id, {
+                    name: editedApi.name,
+                    description: editedApi.description,
+                    tables: editedApi.tables
+                });
+                setApi(editedApi);
+                setIsEditing(false);
+            } catch (error) {
+                console.error('Error updating API:', error);
+            }
         }
     };
 

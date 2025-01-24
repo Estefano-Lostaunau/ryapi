@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'; {/* googleLogout*/ }
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
-import UserService from '../domains/user/UserService';
+import UserService from '../services/UserService';
 import { useUser } from '../contexts/UserContext';
 import { jwtDecode } from 'jwt-decode';
 

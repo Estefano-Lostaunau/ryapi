@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ApiService from '../domains/api/ApiService';
-import { dataTypes } from '../domains/api/Api';
-import { useApiContext } from '../contexts/ApiContext';
-import { Table, Attribute } from '../domains/api/Api';
+import { useUser } from '../contexts/UserContext';
+import ApiService from '../services/ApiService';
+import { dataTypes } from '../models/Api';
+import { Table, Attribute } from '../models/Api';
 
 interface ApiModalProps {
     isOpen: boolean;
@@ -18,6 +18,7 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
     const [editingTableIndex, setEditingTableIndex] = useState<number | null>(null);
     const [editingAttributeIndex, setEditingAttributeIndex] = useState<number | null>(null);
     const [editingAttribute, setEditingAttribute] = useState<Attribute | null>(null);
+    const { user } = useUser();
 
     const [newAttribute, setNewAttribute] = useState<Attribute>({
         name: '',
@@ -25,7 +26,6 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
         isPrimaryKey: false,
         isRequired: true
     });
-    const { refreshApis } = useApiContext();
 
 
 
@@ -78,12 +78,16 @@ export const ApiModal = ({ isOpen, onClose, apiName, apiDescription }: ApiModalP
 
 
     const handleSaveApi = async () => {
-        await ApiService.createApi({
+        if (!user) return;
+  
+        await ApiService.createApi(user.id, {
             name: apiName,
             description: apiDescription,
-            tables: tables
+            tables: tables,
+            userId: user.id,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
         });
-        refreshApis();
         // Reset modal state
         setTables([]);
         setNewTable('');
